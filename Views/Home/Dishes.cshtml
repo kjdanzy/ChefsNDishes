@@ -1,0 +1,41 @@
+@{
+    ViewData["Title"] = "Dish Page";
+}
+
+@model Dish
+
+<div>
+    <div class="containerSpaceBetween">
+        <h4><a id="AddADish" href="newdish">Add a Dish</a></h4>
+        <div>
+            <h1 class="display-4 text-center"><a href="/">Chefs</a> | Dishes</h1>
+        </div>
+    </div>
+    <br>
+    <div class="">
+            <div>
+                <h3>Yum, take a look at our tasty dishes!</h3>
+                <br>
+                <table class="table table-striped">
+                    <tr>
+                        <th>Name</th>
+                        <th>Chef</th>
+                        <th>Tastiness</th>
+                        <th>Calories</th>
+                    </tr>
+                    @foreach (Dish dish in ViewBag.Dishes)
+                    {
+                        <tr>
+                            <td><h4>@dish.Name</h4></td>
+                            <td>
+                                <h4>@dish.DishCreator.FirstName @dish.DishCreator.LastName</h4>
+                            </td>
+                            <td><h4>@dish.Tastiness</h4></td>
+                            <td><h4>@dish.Calories</h4></td>
+                        </tr>
+                    }
+                </table>
+            </div>
+            
+    </div>
+</div>
